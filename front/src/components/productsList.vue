@@ -11,26 +11,14 @@
 </template>
 
 <script>
+    import axios from '../../node_modules/axios/dist/axios.js'
     import state from '../state.js';
 
     export default {
         name: 'productsList',
         data: function() {
             return {
-                products: [
-                    {
-                        'id': 1,
-                        'name': 'mobile phone',
-                    },
-                    {
-                        'id': 2,
-                        'name': 'sandwich',
-                    },
-                    {
-                        'id': 3,
-                        'name': 'skateboard',
-                    }
-                ]
+                products: []
             }
         },
         methods: {
@@ -39,9 +27,7 @@
             }
         },
         mounted() {
-            // axios
-            //     .get('http://localhost:3000/products')
-            //     .then(response => (this.products = response))
+            axios.get('/api/products').then(response => this.products = response.data )
         },
     }
 </script>
