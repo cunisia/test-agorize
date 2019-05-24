@@ -1,0 +1,27 @@
+{
+  "name": "agorize-store-back",
+  "version": "1.0.0",
+  "description": "Backend part of the technical test realized for agorize recruitment process",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cunisia/test-agorize.git"
+  },
+  "author": "Pierre Cuni",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cunisia/test-agorize/issues"
+  },
+  "homepage": "https://github.com/cunisia/test-agorize#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.0"
+  }
+}
