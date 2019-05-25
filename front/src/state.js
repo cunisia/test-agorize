@@ -1,7 +1,12 @@
 import Vue from 'vue';
 
+function getStoredCart() {
+    let storedCart = localStorage.getItem('agorize.cart');
+    return storedCart === null ? {} : JSON.parse(storedCart);
+}
+
 export default {
-    cart: {},
+    cart: getStoredCart(),
     addCartline (product) {
         console.log('addCartline: ', product);
         let cartLine = this.cart[product.id];
@@ -18,10 +23,11 @@ export default {
             };
             Vue.set(this.cart, product.id, cartLine);
         }
-        console.log(this.cart);
+        localStorage.setItem('agorize.cart', JSON.stringify(this.cart));
     },
     removeCartLine: function (productId) {
         console.log('removeCartLine: ', productId);
         Vue.delete(this.cart, productId);
+        localStorage.setItem('agorize.cart', JSON.stringify(this.cart));
     }
 }
