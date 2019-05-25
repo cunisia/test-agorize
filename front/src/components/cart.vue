@@ -1,14 +1,15 @@
 <template>
     <div class="component">
-        <h5 class="component__title">CART</h5>
-        <ul class="cart-list">
-            <li v-for="cartLine in cartList" class="cart-item">
-                <span class="cart-item__title">{{cartLine.productSummary.name}}</span>
-                <span class="cart-item__quantity">{{cartLine.quantity}}</span>
-                <span v-on:click="removeFromCart(cartLine.productSummary.id)"
-                      class="cart-item__remove-btn">Remove</span>
-            </li>
-        </ul>
+        <h1 class="component__title">CART</h1>
+        <table class="cart-table">
+            <tr v-for="cartLine in cartList" class="cart-table__line">
+                <td class="cart-table__cell cart-table__cell--pic" v-bind:style="{backgroundImage:'url(' + cartLine.productSummary.pic + ')'}"></td>
+                <td class="cart-table__cell cart-table__cell--title">{{cartLine.productSummary.name}} ({{cartLine.quantity}})</td>
+                <td class="cart-table__cell cart-table__cell--action">
+                    <div class="cart-table__remove-btn" v-on:click="removeFromCart(cartLine.productSummary.id)">Remove</div>
+                </td>
+            </tr>
+        </table>
     </div>
 </template>
 
@@ -36,5 +37,54 @@
 </script>
 
 <style scoped>
+
+    .cart-table {
+        border-collapse: separate;
+        border-spacing: 0px;
+        border: 1px #999 solid;
+        margin: auto;
+    }
+
+    .cart-table__line {
+        display: block;
+    }
+
+    .cart-table__line:not(:first-child) {
+        border-top: 1px #999 solid;
+    }
+
+    .cart-table__cell--pic {
+        width: 200px;
+        height: 150px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .cart-table__cell--title {
+        font-size: 24px;
+        text-transform: capitalize;
+        width: 400px;
+        text-align: left;
+        padding-left: 24px;
+    }
+
+    .cart-table__cell--action {
+        padding-right: 16px;
+    }
+
+    .cart-table__remove-btn {
+        background: #999;
+        color: white;
+        padding: 8px 16px;
+        text-transform: uppercase;
+        cursor: pointer;
+        width: 150px;
+        display: inline-block;
+    }
+
+    .cart-table__remove-btn:hover {
+        font-weight: bold;
+    }
 
 </style>
