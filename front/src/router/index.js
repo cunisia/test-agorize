@@ -7,6 +7,7 @@ import cart from '@/components/cart'
 Vue.use(Router)
 
 export default new Router({
+    linkExactActiveClass: 'header__link--active',
     routes: [
         {
             path: '/',

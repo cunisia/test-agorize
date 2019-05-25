@@ -1,8 +1,11 @@
 <template>
     <div id="app">
-        <header>
-            <router-link to="/">Products</router-link>
-            | <router-link to="/cart">Cart ({{nbItemsInCart}})</router-link>
+        <header class="header">
+            <span class="header__title">Agorize's shop</span>
+            <span clas="header__links">
+                <router-link class="header__link" to="/">Products</router-link>
+                <router-link class="header__link" to="/cart">Cart ({{nbItemsInCart}})</router-link>
+            </span>
         </header>
         <main>
             <router-view></router-view>
@@ -54,18 +57,34 @@
 
     main {
         text-align: center;
-        margin-top: 40px;
+        padding-top: 56px;
     }
 
-    header {
+    .header {
         margin: 0;
         height: 56px;
         padding: 0 16px 0 24px;
         background-color: #35495E;
         color: #ffffff;
+        font-size: 20px;
+        display: flex;
+        justify-content: space-between;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        box-sizing: border-box;
     }
 
-    header a {
+    .header__title {
+        flex: 0 0 auto;
+        line-height: 56px;
+    }
+
+    .header__links {
+        flex: 0 0 auto;
+    }
+
+    .header__link {
         display: inline-block;
         color: white;
         text-decoration: none;
@@ -76,5 +95,10 @@
         font-weight: 400;
         box-sizing: border-box;
         padding-top: 16px;
+        margin-left: 10px;
+    }
+
+    .header__link--active {
+        font-weight: bold;
     }
 </style>
