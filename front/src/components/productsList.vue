@@ -1,10 +1,18 @@
 <template>
     <div class="component">
-        <h5 class="component__title">PRODUCTS</h5>
+        <h1 class="component__title">PRODUCTS</h1>
         <ul class="product-list">
             <li class="product" v-for="product in products">
-                <span class="product__name">{{product.name}}</span>
-                <span class="product__add-btn" v-on:click="addToCart(product)">Add To Cart</span>
+                <div class="product__container">
+                    <div class="product__image" v-bind:style="{backgroundImage:'url(' + product.pic + ')'}" />
+                    <div class="product__info">
+                        <span class="product__name">{{product.name}}</span>
+                        <p class="product__desc">{{product.desc}}</p>
+                    </div>
+                    <div class="product__footer">
+                        <div class="product__add-btn" v-on:click="addToCart(product)">Add To Cart</div>
+                    </div>
+                </div>
             </li>
         </ul>
     </div>
@@ -34,21 +42,70 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-    h1, h2 {
-        font-weight: normal;
-    }
-
-    ul {
+    .product-list {
         list-style-type: none;
         padding: 0;
     }
 
-    li {
+    .product {
         display: inline-block;
-        margin: 0 10px;
+        width: 400px;
+        height: 400px;
+        vertical-align: top;
+
+        padding: 0 8px;
+        margin-bottom: 16px;
     }
 
-    a {
-        color: #35495E;
+    .product__container {
+        display: flex;
+        flex-direction: column;
+        border: 1px #999 solid;
+        height: 100%;
     }
+
+    .product__image {
+        flex: 0 0 200px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .product__info {
+        flex: 1 1 auto;
+        padding: 16px;
+        padding-bottom: 8px;
+        overflow: hidden;
+    }
+
+    .product__name {
+        font-size: 24px;
+        text-transform: capitalize;
+    }
+
+    .product__desc {
+        overflow: hidden;
+    }
+
+    .product__add-btn {
+        background: #999;
+        color: white;
+        padding: 8px 16px;
+        text-transform: uppercase;
+        cursor: pointer;
+        width: 150px;
+        display: inline-block;
+    }
+
+    .product__add-btn:hover {
+        font-weight: bold;
+    }
+
+    .product__footer {
+        flex: 0 0 auto;
+        padding: 16px;
+        padding-top: 8px;
+    }
+
+
 </style>
