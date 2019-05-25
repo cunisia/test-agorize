@@ -10,7 +10,7 @@
                         <p class="product__desc">{{product.desc}}</p>
                     </div>
                     <div class="product__footer">
-                        <div class="product__add-btn" v-on:click="addToCart(product)">Add To Cart</div>
+                        <div class="btn" v-on:click="addToCart(product)">Add To Cart</div>
                     </div>
                 </div>
             </li>
@@ -87,20 +87,6 @@
 
     .product__desc {
         overflow: hidden;
-    }
-
-    .product__add-btn {
-        background: #999;
-        color: white;
-        padding: 8px 16px;
-        text-transform: uppercase;
-        cursor: pointer;
-        width: 150px;
-        display: inline-block;
-    }
-
-    .product__add-btn:hover {
-        font-weight: bold;
     }
 
     .product__footer {

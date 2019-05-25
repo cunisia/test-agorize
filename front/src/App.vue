@@ -101,4 +101,23 @@
     .header__link--active {
         font-weight: bold;
     }
+
+    .btn {
+        background: #999;
+        color: white;
+        padding: 8px 16px;
+        text-transform: uppercase;
+        cursor: pointer;
+        width: 150px;
+        display: inline-block;
+    }
+
+    .btn:hover {
+        font-weight: bold;
+    }
+
+    .link {
+        text-decoration: none;
+        color: #3b99fc;
+    }
 </style>
