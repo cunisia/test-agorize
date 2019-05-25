@@ -1,15 +1,18 @@
 <template>
     <div class="component">
         <h1 class="component__title">CART</h1>
-        <table class="cart-table">
+        <table class="cart-table" v-if="cartList.length > 0">
             <tr v-for="cartLine in cartList" class="cart-table__line">
                 <td class="cart-table__cell cart-table__cell--pic" v-bind:style="{backgroundImage:'url(' + cartLine.productSummary.pic + ')'}"></td>
                 <td class="cart-table__cell cart-table__cell--title">{{cartLine.productSummary.name}} ({{cartLine.quantity}})</td>
                 <td class="cart-table__cell cart-table__cell--action">
-                    <div class="cart-table__remove-btn" v-on:click="removeFromCart(cartLine.productSummary.id)">Remove</div>
+                    <div class="btn" v-on:click="removeFromCart(cartLine.productSummary.id)">Remove</div>
                 </td>
             </tr>
         </table>
+        <div v-if="cartList.length === 0" class="cart-placeholder">
+            Your cart is empty, you can start purchasing <router-link class="link" to="/">here</router-link>
+        </div>
     </div>
 </template>
 
@@ -73,18 +76,8 @@
         padding-right: 16px;
     }
 
-    .cart-table__remove-btn {
-        background: #999;
-        color: white;
-        padding: 8px 16px;
-        text-transform: uppercase;
-        cursor: pointer;
-        width: 150px;
-        display: inline-block;
-    }
-
-    .cart-table__remove-btn:hover {
-        font-weight: bold;
+    .cart-placeholder {
+        font-size: 24px;
     }
 
 </style>
