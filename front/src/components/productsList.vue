@@ -40,11 +40,12 @@
     }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
+<style scoped>
     .product-list {
         list-style-type: none;
         padding: 0;
+        text-align: left;
+        padding: 0 8px;
     }
 
     .product {
@@ -62,6 +63,7 @@
         flex-direction: column;
         border: 1px #999 solid;
         height: 100%;
+        text-align: center;
     }
 
     .product__image {
