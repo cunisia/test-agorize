@@ -3,8 +3,8 @@
         <header class="header">
             <span class="header__title">Agorize's shop</span>
             <span clas="header__links">
-                <router-link class="header__link" to="/">Products</router-link>
-                <router-link class="header__link" to="/cart">Cart ({{nbItemsInCart}})</router-link>
+                <router-link class="header__link" to="/" id="products-link">Products</router-link>
+                <router-link class="header__link" to="/cart" id="cart-link">Cart ({{nbItemsInCart}})</router-link>
             </span>
         </header>
         <main>

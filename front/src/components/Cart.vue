@@ -1,5 +1,5 @@
 <template>
-    <div class="component">
+    <div class="component" id="cart">
         <h1 class="component__title">CART</h1>
         <table class="cart-table" v-if="cartList.length > 0">
             <tr v-for="cartLine in cartList" class="cart-table__line">
