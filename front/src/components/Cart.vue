@@ -6,7 +6,7 @@
                 <td class="cart-table__cell cart-table__cell--pic" v-bind:style="{backgroundImage:'url(' + cartLine.productSummary.pic + ')'}"></td>
                 <td class="cart-table__cell cart-table__cell--title">{{cartLine.productSummary.name}} ({{cartLine.quantity}})</td>
                 <td class="cart-table__cell cart-table__cell--action">
-                    <div class="btn" v-on:click="removeFromCart(cartLine.productSummary.id)">Remove</div>
+                    <div class="btn" v-on:click="removeAllFromCart(cartLine.productSummary.id)">Remove</div>
                 </td>
             </tr>
         </table>

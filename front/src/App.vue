@@ -9,16 +9,14 @@
         </header>
         <main>
             <router-view></router-view>
-            <!--<products-list v-bind:products="products" v-on:add-to-cart="onAddToCart"></products-list>-->
-            <!--<cart v-bind:products="products" v-bind:cart="cart" v-on:remove-from-cart="onRemoveFromCart"></cart>-->
         </main>
     </div>
 </template>
 
 <script>
     import state from './state.js';
-    import productsList from '@/components/productsList'
-    import cart from '@/components/cart'
+    import ProductsList from '@/components/ProductsList'
+    import Cart from '@/components/Cart'
 
     export default {
         data: function () {
@@ -37,8 +35,8 @@
             }
         },
         components: {
-            'productsList': productsList,
-            'cart': cart
+            'productsList': ProductsList,
+            'cart': Cart
         }
     }
 </script>
