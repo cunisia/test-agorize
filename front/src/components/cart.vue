@@ -32,8 +32,8 @@
             }
         },
         methods: {
-            removeFromCart: function(id) {
-                state.removeCartLine(id);
+            removeAllFromCart: function(id) {
+                state.removeAllFromCart(id);
             }
         }
     }

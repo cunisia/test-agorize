@@ -31,7 +31,7 @@
         },
         methods: {
             addToCart(product) {
-                state.addCartline(product);
+                state.addToCart(product);
             }
         },
         mounted() {
