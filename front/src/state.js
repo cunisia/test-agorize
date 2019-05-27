@@ -4,7 +4,6 @@ const AGORIZE_CART_KEY = 'agorize.cart';
 
 function getStoredCart() {
     let storedCart = localStorage.getItem(AGORIZE_CART_KEY);
-    console.log("getStoredCart: ", storedCart);
     return storedCart === null ? {} : JSON.parse(storedCart);
 }
 
@@ -15,7 +14,6 @@ export default {
             console.warn('product must have a number id, ignoring it: ', JSON.stringify(undefined));
             return;
         }
-        console.log('addToCart: ', product);
         let cartLine = this.cart[product.id];
         if (typeof(cartLine) !== 'undefined') {
             Vue.set(this.cart[product.id], 'quantity', cartLine.quantity + 1);
@@ -37,13 +35,11 @@ export default {
             console.warn('productId must be a number, ignoring it: ', JSON.stringify(undefined));
             return;
         }
-        console.log('removeAllFromCart: ', productId);
         Vue.delete(this.cart, productId);
         localStorage.setItem(AGORIZE_CART_KEY, JSON.stringify(this.cart));
     },
     emptyCart: function() {
         Vue.set(this, 'cart', {});
-        console.log('emptyCart: ', this.cart);
         localStorage.setItem(AGORIZE_CART_KEY, JSON.stringify(this.cart));
     }
 }
