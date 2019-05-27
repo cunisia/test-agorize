@@ -56,6 +56,7 @@ The backend should be running on localhost:8080.
 
 ## How to run the tests
 
+*Make sure the backend is running*
 *Kill the frontend process if it is running*
 
 From the application directory
@@ -70,6 +71,7 @@ From the application directory
 
 ### Launching only e2e tests
 
+*Make sure the backend is running*
 *Kill the frontend process if it is running*
 
 From the application directory
