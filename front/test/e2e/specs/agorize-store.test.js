@@ -16,31 +16,36 @@ module.exports = {
             .assert.elementCount('.product', 9)
             .assert.containsText('#cart-link', 'Cart (0)')
 
-            // check default cart state
+            // check default cart state with empty cart placeholder
             .click('#cart-link')
             .waitForElementVisible('#cart', 5000)
-            .assert.containsText('.cart-placeholder', 'Your cart is empty, you can start purchasing here')
+            .assert.containsText('.placeholder', 'Your cart is empty, you can start purchasing here')
 
-            // back to products list, adding items
+            // back to products list, adding items, checking that cart counter updates correctly
             .click('#products-link')
             .waitForElementVisible('.product-list', 5000)
-            .click('.product:nth-of-type(1) .product__footer .btn')
+            .click('.product#product_1 .product__footer .btn')
             .assert.containsText('#cart-link', 'Cart (1)')
-            .click('.product:nth-of-type(1) .product__footer .btn')
+            .click('.product#product_1 .product__footer .btn')
             .assert.containsText('#cart-link', 'Cart (2)')
-            .click('.product:nth-of-type(2) .product__footer .btn')
+            .click('.product#product_2 .product__footer .btn')
             .assert.containsText('#cart-link', 'Cart (3)')
 
-            // back to cart, checking added items are present in cart
+            // back to cart, checking added items are present in cart, in the right quantity
             .click('#cart-link')
             .waitForElementVisible('#cart', 5000)
             .assert.elementCount('.cart-table__line', 2)
-            .click('.cart-table__line:nth-of-type(1) .cart-table__cell--action .btn')
+            .assert.containsText('.cart-table__line#product_1 .cart-table__cell--quantity', 2)
+            .assert.containsText('.cart-table__line#product_2 .cart-table__cell--quantity', 1)
+
+            // removing items from cart, checking that cart counter updates correctly,
+            // checking that placeholder is displayed when no more products in cart
+            .click('.cart-table__line#product_1 .cart-table__cell--action .btn')
             .assert.elementCount('.cart-table__line', 1)
             .assert.containsText('#cart-link', 'Cart (1)')
-            .click('.cart-table__line:nth-of-type(1) .cart-table__cell--action .btn')
+            .click('.cart-table__line#product_2 .cart-table__cell--action .btn')
             .assert.containsText('#cart-link', 'Cart (0)')
-            .assert.containsText('.cart-placeholder', 'Your cart is empty, you can start purchasing here')
+            .assert.containsText('.placeholder', 'Your cart is empty, you can start purchasing here')
             .end()
     }
 }

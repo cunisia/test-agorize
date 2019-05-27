@@ -2,9 +2,9 @@
     <div class="component" id="cart">
         <h1 class="component__title">CART</h1>
         <table class="cart-table" v-if="cartList.length > 0">
-            <tr v-for="cartLine in cartList" class="cart-table__line">
+            <tr v-for="cartLine in cartList" class="cart-table__line" v-bind:id="'product_' + cartLine.productSummary.id">
                 <td class="cart-table__cell cart-table__cell--pic" v-bind:style="{backgroundImage:'url(' + cartLine.productSummary.pic + ')'}"></td>
-                <td class="cart-table__cell cart-table__cell--title">{{cartLine.productSummary.name}} ({{cartLine.quantity}})</td>
+                <td class="cart-table__cell cart-table__cell--title">{{cartLine.productSummary.name}} (<span class="cart-table__cell--quantity">{{cartLine.quantity}}</span>)</td>
                 <td class="cart-table__cell cart-table__cell--action">
                     <div class="btn" v-on:click="removeAllFromCart(cartLine.productSummary.id)">Remove</div>
                 </td>

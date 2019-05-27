@@ -2,7 +2,7 @@
     <div class="component">
         <h1 class="component__title">PRODUCTS</h1>
         <ul class="product-list" v-if="!loadingError">
-            <li class="product" v-for="product in products">
+            <li class="product" v-for="product in products" v-bind:id="'product_' + product.id">
                 <div class="product__container">
                     <div class="product__image" v-bind:style="{backgroundImage:'url(' + product.pic + ')'}" />
                     <div class="product__info">
