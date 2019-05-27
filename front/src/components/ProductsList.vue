@@ -1,7 +1,7 @@
 <template>
     <div class="component">
         <h1 class="component__title">PRODUCTS</h1>
-        <ul class="product-list">
+        <ul class="product-list" v-if="!loadingError">
             <li class="product" v-for="product in products">
                 <div class="product__container">
                     <div class="product__image" v-bind:style="{backgroundImage:'url(' + product.pic + ')'}" />
@@ -15,6 +15,9 @@
                 </div>
             </li>
         </ul>
+        <div v-if="loadingError" class="placeholder">
+            Oh no, an error occured while loading products :-(
+        </div>
     </div>
 </template>
 
@@ -26,7 +29,8 @@
         name: 'productsList',
         data: function() {
             return {
-                products: []
+                products: [],
+                loadingError: false
             }
         },
         methods: {
@@ -35,7 +39,7 @@
             }
         },
         mounted() {
-            axios.get('/api/products').then(response => this.products = response.data )
+            axios.get('/api/products').then(response => this.products = response.data, response => this.loadingError = true);
         },
     }
 </script>

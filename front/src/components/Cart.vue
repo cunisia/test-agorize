@@ -10,7 +10,7 @@
                 </td>
             </tr>
         </table>
-        <div v-if="cartList.length === 0" class="cart-placeholder">
+        <div v-if="cartList.length === 0" class="placeholder">
             Your cart is empty, you can start purchasing <router-link class="link" to="/">here</router-link>
         </div>
     </div>
@@ -74,10 +74,6 @@
 
     .cart-table__cell--action {
         padding-right: 16px;
-    }
-
-    .cart-placeholder {
-        font-size: 24px;
     }
 
 </style>

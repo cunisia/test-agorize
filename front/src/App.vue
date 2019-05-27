@@ -118,4 +118,8 @@
         text-decoration: none;
         color: #3b99fc;
     }
+
+    .cart-placeholder {
+        font-size: 24px;
+    }
 </style>
