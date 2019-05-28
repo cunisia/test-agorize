@@ -73,7 +73,7 @@
     .product__image {
         flex: 0 0 200px;
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: contain;
         background-position: center;
     }
 

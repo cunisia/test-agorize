@@ -60,7 +60,7 @@
         width: 200px;
         height: 150px;
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: contain;
         background-position: center;
     }
 
